@@ -1,0 +1,21 @@
+<nav role="navigation" class="navbar navbar-white navbar-embossed navbar-lg navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle navigation</span>
+            </button>
+            <a href="{% url 'home' %}" class="navbar-brand brand"> BESANE PROPERTIES </a>
+        </div>
+        <div id="navbar-collapse-02" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="propClone"><a href="{% url 'home' %}">Home</a></li>
+                <li class="propClone"><a href="{% url 'viewRanches' %}">Ranches</a></li>
+                <li class="propClone"><a href="{% url 'viewLands' %}">Lands</a></li>
+                <li class="propClone"><a href="{% url 'viewother' %}">Properties</a></li>
+                <li class="propClone"><a href="{% url 'contactview' %}">Contact</a></li>
+                <li class="propClone"><a href="#"><i class='fa fa-phone-square'></i> <span> 0799577639 / 0708837681</span> </a></li>
+            </ul>
+        </div>
+    </div>
+    </nav>

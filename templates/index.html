@@ -1,0 +1,380 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="">
+<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+</head>
+<body>
+
+
+<!-- HEADER =============================-->
+<header class="item header margin-top-0">
+    <div class="wrapper">
+		
+		{% include 'nav.html' %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="text-homeimage">
+                        <div class="maintext-image" data-scrollreveal="enter top over 1.5s after 0.1s">
+                             BUY KENYAN LANDS
+                        </div>
+                        <div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.3s">
+                             get land at affordable prices
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </header>
+
+
+<!-- STEPS =============================-->
+<div class="item content">
+	<div class="container toparea">
+		<div class="row text-center">
+			<div class="col-md-4">
+				<div class="col editContent">
+					<span class="numberstep"><i class="fa fa-shopping-cart"></i></span>
+					<h3 class="numbertext">Choose our Products</h3>
+					<p>
+						Get land for your business and farm use at affordable and throw away prices
+					</p>
+				</div>
+				<!-- /.col-md-4 -->
+			</div>
+			<!-- /.col-md-4 col -->
+			<div class="col-md-4 editContent">
+				<div class="col">
+					<span class="numberstep"><i class="fa fa-gift"></i></span>
+					<h3 class="numbertext">Pay on satisfaction</h3>
+					<p>
+						you are only allowed to pay on satisfaction on seeing the land
+					</p>
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.col-md-4 col -->
+			<div class="col-md-4 editContent">
+				<div class="col">
+					<span class="numberstep"><i class="fa fa-download"></i></span>
+					<h3 class="numbertext">Get instant feedback </h3>
+					<p>
+						Get instant feedback on queries where we will call you and email you within 24hours
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	
+	<!-- LATEST ITEMS =============================-->
+<section class="item content">
+	<div class="container">
+		<div class="underlined-title">
+			<div class="editContent">
+				<h1 class="text-center latestitems">LATEST LAND OFFERS</h1>
+			</div>
+			<div class="wow-hr type_short">
+				<span class="wow-hr-h">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+
+			<!-- loop here -->
+
+			{% for land in latestLands %}
+
+			<!-- /.productbox -->
+			<div class="col-md-4">
+				<div class="productbox">
+					<div class="fadeshop">
+						<div class="captionshop text-center" style="display: none;">
+							<h3>{{land.name}}</h3>
+							<p>
+								 {{land.description}}
+							</p>
+				
+							<p>
+								<a href="{% url 'land_detail' land.id  %}" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+							</p>
+							
+						</div>
+						<span class="maxproduct">
+							{% if land.sold %}
+							<button class="sold">SOLD</button>
+							{% endif %}
+							
+
+							<img src="/media/{{land.pic}}" alt=""></span>
+					
+					</div>
+					<div class="product-details">
+						<a href="{% url 'land_detail' land.id  %}">
+						<h1>{{land.name}}</h1>
+						</a>
+						<span class="price">
+						<span class="edd_price">KSH.{{land.price}}</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- /.productbox -->
+
+			{% endfor %}
+
+		
+
+
+		</div>
+	</div>
+</div>
+</section>
+
+<!-- BUTTON =============================-->
+<div class="item content">
+	<div class="container text-center">
+		<a href="{% url 'viewLands' %}" class="homebrowseitems">Browse All Lands
+		<div class="homebrowseitemsicon">
+			<i class="fa fa-star fa-spin"></i>
+		</div>
+		</a>
+	</div>
+</div>
+<br/>
+
+
+<!-- latest properties -->
+<section class="item content">
+	<div class="container">
+		<div class="underlined-title">
+			<div class="editContent">
+				<h1 class="text-center latestitems">LATEST PROPERTY OFFERS</h1>
+			</div>
+			<div class="wow-hr type_short">
+				<span class="wow-hr-h">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+
+			<!-- loop here -->
+
+			{% for property in latestProperties %}
+
+			<!-- /.productbox -->
+			<div class="col-md-4">
+				<div class="productbox">
+					<div class="fadeshop">
+						<div class="captionshop text-center" style="display: none;">
+							<h3>{{property.name}}</h3>
+							<p>
+								 {{property.description}}
+							</p>
+							<p>
+								<a href="{% url 'property_detail' property.id  %}" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+							</p>
+						</div>
+						<span class="maxproduct">
+							{% if property.sold %}
+							<button class="sold">SOLD</button>
+							{% endif %}
+							<img src="/media/{{property.pic}}" alt=""></span>
+					</div>
+					<div class="product-details">
+						<a href="{% url 'property_detail' property.id  %}">
+						<h1>{{property.name}}</h1>
+						</a>
+						<span class="price">
+						<span class="edd_price">KSH.{{property.price}}</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- /.productbox -->
+
+			{% endfor %}
+
+		
+
+
+		</div>
+	</div>
+</div>
+</section>
+
+<!-- BUTTON =============================-->
+<div class="item content">
+	<div class="container text-center">
+		<a href="{% url 'viewother' %}" class="homebrowseitems">Browse All properties
+		<div class="homebrowseitemsicon">
+			<i class="fa fa-star fa-spin"></i>
+		</div>
+		</a>
+	</div>
+</div>
+<br/>
+
+<!-- latest properties -->
+<section class="item content">
+	<div class="container">
+		<div class="underlined-title">
+			<div class="editContent">
+				<h1 class="text-center latestitems">LATEST RANCH OFFERS</h1>
+			</div>
+			<div class="wow-hr type_short">
+				<span class="wow-hr-h">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+
+			<!-- loop here -->
+
+			{% for ranch in latestRanches %}
+
+			<!-- /.productbox -->
+			<div class="col-md-4">
+				<div class="productbox">
+					<div class="fadeshop">
+						<div class="captionshop text-center" style="display: none;">
+							<h3>{{ranch.name}}</h3>
+							<p>
+								 {{ranch.description}}
+							</p>
+							<p>
+								<a href="{% url 'ranch_detail' ranch.id  %}" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+							</p>
+						</div>
+						<span class="maxproduct">
+							{% if ranch.sold %}
+							<button class="sold">SOLD</button>
+							{% endif %}
+							<img src="/media/{{ranch.pic}}" alt=""></span>
+					</div>
+					<div class="product-details">
+						<a href="{% url 'ranch_detail' ranch.id  %}">
+						<h1>{{ranch.name}}</h1>
+						</a>
+						<span class="price">
+						<span class="edd_price">KSH.{{ranch.price}}</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- /.productbox -->
+
+			{% endfor %}
+
+		
+
+
+		</div>
+	</div>
+</div>
+</section>
+
+<!-- BUTTON =============================-->
+<div class="item content">
+	<div class="container text-center">
+		<a href="{% url 'viewRanches' %}" class="homebrowseitems">Browse All Ranches
+		<div class="homebrowseitemsicon">
+			<i class="fa fa-star fa-spin"></i>
+		</div>
+		</a>
+	</div>
+</div>
+<br/>
+
+
+<!-- AREA =============================-->
+<div class="item content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<i class="fa fa-microphone infoareaicon"></i>
+				<div class="infoareawrap">
+					<h1 class="text-center subtitle">General Questions</h1>
+					<p>
+						want to know negotiation price and availability of land products which may not be included on our site? then just send us a message on the contact section and we will reply immediately
+					</p>
+					<p class="text-center">
+						<a href="{% url 'contactview' %}">- Get in Touch -</a>
+					</p>
+				</div>
+			</div>
+			<!-- /.col-md-4 col -->
+			<div class="col-md-4">
+				<i class="fa fa-comments infoareaicon"></i>
+				<div class="infoareawrap">
+					<h1 class="text-center subtitle">Support</h1>
+					<p>
+						 Theme support issues prevent the theme from working as advertised in the demo. This is a free and guaranteed service offered through our support forum which is found in each theme.
+					</p>
+					<p class="text-center">
+						<a href="{% url 'contactview' %}">- contact us -</a>
+					</p>
+				</div>
+			</div>
+			<!-- /.col-md-4 col -->
+			<div class="col-md-4">
+				<i class="fa fa-bullhorn infoareaicon"></i>
+				<div class="infoareawrap">
+					<h1 class="text-center subtitle">Hire Us</h1>
+					<p>
+						 If you wish to sell land or advertise its selling we will gladly do so at an affordable fee...just call or contact us in out contact section and we will reply in 24hours
+					</p>
+					<p class="text-center">
+						<a href="{% url 'contactview' %}">- Get in Touch -</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% include 'footer.html' %}
+
+<!-- SCRIPTS =============================-->
+<script src="{% static 'assets/js/jquery-.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/anim.js' %}"></script>
+<script>
+//----HOVER CAPTION---//	  
+jQuery(document).ready(function ($) {
+
+	$('.fadeshop').hover(
+		function(){
+			$(this).find('.captionshop').fadeIn(150);
+		},
+		function(){
+			$(this).find('.captionshop').fadeOut(150);
+		}
+	);
+});
+</script>
+	
+</body>
+</html>

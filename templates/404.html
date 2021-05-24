@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="">
+<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+</head>
+<body>
+
+
+<!-- HEADER =============================-->
+<header class="item header margin-top-0">
+    <div class="wrapper">
+		
+		{% include 'nav.html' %}
+
+  
+
+    </div>
+    </header>
+
+
+
+<div class="main text-center">
+    
+<br>
+<br>
+<br>
+<br>
+<span style="color: red;">
+    <i class="fa fa-exclamation-triangle fa-5x"></i>
+</span>
+
+<h1 class="text-center">ERROR 404 NOT FOUND</h1>
+<br>
+<br>
+<br>
+<br>
+<h2 class="text-center">THE REQUESTED RESOURCE COULD NOT BE LOADED</h2>
+</div>
+
+
+{% include 'footer.html' %}
+
+<!-- SCRIPTS =============================-->
+<script src="{% static 'assets/js/jquery-.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/anim.js' %}"></script>
+<script>
+//----HOVER CAPTION---//	  
+jQuery(document).ready(function ($) {
+	$('.fadeshop').hover(
+		function(){
+			$(this).find('.captionshop').fadeIn(150);
+		},
+		function(){
+			$(this).find('.captionshop').fadeOut(150);
+		}
+	);
+});
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="">
+<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER =============================-->
+<header class="item header margin-top-0">
+	<div class="wrapper">
+		{% include 'nav.html' %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="text-pageheader">
+					<div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.1s">
+						 Ranches
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</header>
+
+<!-- CONTENT =============================-->
+<section class="item content">
+<div class="container toparea">
+	<div class="underlined-title">
+		<div class="editContent">
+			<h1 class="text-center latestitems">OUR Ranches</h1>
+		</div>
+		<div class="wow-hr type_short">
+			<span class="wow-hr-h">
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			</span>
+		</div>
+	</div>
+	
+	<div class="row">
+
+		<!-- iterate -->
+
+		{% for ranch in ranches %}
+		<div class="col-md-4">
+			<div class="productbox">
+				<div class="fadeshop">
+					<div class="captionshop text-center" style="display: none;">
+						<h3>{{ranch.name}}</h3>
+						<p>
+							 {{ranch.description}}
+						</p>
+						<p>
+							<a href="{% url 'ranch_detail' ranch.id %}" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+						</p>
+					</div>
+					<span class="maxproduct">
+						{% if ranch.sold %}
+							<button class="sold">SOLD</button>
+							{% endif %}<img src="/media/{{ranch.pic}}" alt=""></span>
+				</div>
+				<div class="product-details">
+					<a href="#">
+					<h1>{{ranch.name}}</h1>
+					</a>
+					<span class="price">
+					<span class="edd_price">KSH. {{ranch.price}}</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		<!-- end iterate -->
+	</div>
+</div>
+</div>
+</section>
+
+<!-- CALL TO ACTION =============================-->
+{% include 'footer.html' %}
+<!-- Load JS here for greater good =============================-->
+<script src="{% static 'assets/js/jquery-.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/anim.js' %}"></script>
+<script>
+//----HOVER CAPTION---//	  
+jQuery(document).ready(function ($) {
+	$('.fadeshop').hover(
+		function(){
+			$(this).find('.captionshop').fadeIn(150);
+		},
+		function(){
+			$(this).find('.captionshop').fadeOut(150);
+		}
+	);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="">
+<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER =============================-->
+<header class="item header margin-top-0">
+	<div class="wrapper">
+		{% include 'nav.html' %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="text-pageheader">
+					<div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.0s">
+						 Property Description
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</header>
+
+<!-- CONTENT =============================-->
+<section class="item content">
+<div class="container toparea">
+	<div class="underlined-title">
+		<div class="editContent">
+			<h1 class="text-center latestitems">Awesome Product</h1>
+		</div>
+		<div class="wow-hr type_short">
+			<span class="wow-hr-h">
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="productbox">
+				<img src="/media/{{ranch.pic}}" alt="">
+				<div class="clearfix">
+				</div>
+				<br/>
+				<div class="product-details text-left">
+					<p>
+						{{ranch.description}}
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<a href="#" class="btn btn-buynow">{{ranch.name}}</a>
+			<div class="properties-box">
+				<ul class="unstyle">
+					<li><b class="propertyname">property Size:</b> {{ranch.size}}</li>
+					<li><b class="propertyname">Available:</b>{{ranch.available}}</li>
+					<li><b class="propertyname">Location:</b> {{ranch.Location}}</li>
+					<li><b class="propertyname">Price:</b> KSH. {{ranch.price}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+<!-- CALL TO ACTION =============================-->
+{% include 'footer.html' %}
+
+<!-- Load JS here for greater good =============================-->
+<script src="{% static 'assets/js/jquery-.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/anim.js' %}"></script>
+
+</body>
+</html>
